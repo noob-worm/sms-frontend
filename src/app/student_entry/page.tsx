@@ -7,7 +7,7 @@ import Header from "../components/Header";
 // --- Main Add Student Form Component ---
 export default function AddStudentPage() {
   console.log("AddStudentPage is loading...");
-  
+
   // Tab state for the local form sections (General, Address, Account, ID)
   const [activeTab, setActiveTab] = useState<'general' | 'address' | 'account' | 'id'>('general');
   // Hover state for local tabs
@@ -60,7 +60,7 @@ export default function AddStudentPage() {
     aadhar: "",
     pan: "",
   });
-  
+
   // --- Validation State ---
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
@@ -219,7 +219,7 @@ export default function AddStudentPage() {
     if (!validate()) return;
     const existing = JSON.parse(localStorage.getItem("studentDetails") || "[]");
     localStorage.setItem("studentDetails", JSON.stringify([...existing, form]));
-    
+
     const messageBox = document.createElement('div');
     messageBox.style.cssText = `
       position: flex;
@@ -244,7 +244,7 @@ export default function AddStudentPage() {
       document.body.removeChild(messageBox);
     }, 3000);
 
-setForm({
+    setForm({
       firstName: "",
       middleName: "",
       lastName: "",
@@ -286,47 +286,47 @@ setForm({
     setStudentSummary("");
   };
 
-    function handleDelete(event: { preventDefault: () => void; }) {
-      event.preventDefault();
-      setForm({
-        firstName: "",
-        middleName: "",
-        lastName: "",
-        fatherFirstName: "",
-        fatherMiddleName: "",
-        fatherLastName: "",
-        motherName: "",
-        dob: "",
-        age: "",
-        mobile: "",
-        email: "",
-        religion: "",
-        presentHouseNo: "",
-        presentStreetName: "",
-        presentCity: "",
-        presentState: "",
-        presentCountry: "",
-        presentPincode: "",
-        presentNearbyPlace: "",
-        permanentHouseNo: "",
-        permanentStreetName: "",
-        permanentCity: "",
-        permanentState: "",
-        permanentCountry: "",
-        permanentPincode: "",
-        permanentNearbyPlace: "",
-        isSameAddress: false,
-        sex: "",
-        aadhar: "",
-        pan: "",
-        bankType: "",
-        upi: "",
-        accountNumber: "",
-        bankName: "",
-        ifsc: "",
-        swift: "",
-      });
-      setErrors({});
+  function handleDelete(event: { preventDefault: () => void; }) {
+    event.preventDefault();
+    setForm({
+      firstName: "",
+      middleName: "",
+      lastName: "",
+      fatherFirstName: "",
+      fatherMiddleName: "",
+      fatherLastName: "",
+      motherName: "",
+      dob: "",
+      age: "",
+      mobile: "",
+      email: "",
+      religion: "",
+      presentHouseNo: "",
+      presentStreetName: "",
+      presentCity: "",
+      presentState: "",
+      presentCountry: "",
+      presentPincode: "",
+      presentNearbyPlace: "",
+      permanentHouseNo: "",
+      permanentStreetName: "",
+      permanentCity: "",
+      permanentState: "",
+      permanentCountry: "",
+      permanentPincode: "",
+      permanentNearbyPlace: "",
+      isSameAddress: false,
+      sex: "",
+      aadhar: "",
+      pan: "",
+      bankType: "",
+      upi: "",
+      accountNumber: "",
+      bankName: "",
+      ifsc: "",
+      swift: "",
+    });
+    setErrors({});
     setStudentSummary("");
   }
 
@@ -356,90 +356,89 @@ setForm({
     <div style={{ minHeight: "100vh", background: 'rgb(89, 196, 178)', position: "fixed", }}>
       <Header tabName="Master" userName={userName} />
       <div style={{ height: 55, }} /> {/* Spacer for fixed header */}
-      
-        {/* --- Second Header: Tabs with Hover Effect --- */}
-        <div style={{
-          width: '100vw',
-          display: 'flex',
-        
-          gap: 0,
+
+      {/* --- Second Header: Tabs with Hover Effect --- */}
+      <div style={{
+        width: '100vw',
+        display: 'flex',
+        gap: 0,
         background: 'rgb(219, 117, 33)',
-          borderBottom: '1.5px solid #fefbfbff',
-          boxShadow: '0 1px 8px #0001',
+        borderBottom: '1.5px solid rgb(231, 29, 29)',
+        boxShadow: '0 1px 8px #0001',
         color: "rgb(49, 219, 33)",
-          marginBottom: '0.5rem',
+        marginBottom: '0.5rem',
         marginTop: '-0.8rem',
         overflow: 'visible',
-          marginLeft: 0,
+        marginLeft: 0,
         marginRight: '3vw',
         position: 'fixed',
         top: 64,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          zIndex: 1100,
-        }}>
+        left: '50%',
+        transform: 'translateX(-50%)',
+        zIndex: 1100,
+      }}>
         {tabs.map((tab) => {
-            const isActive = activeTab === tab;
-            const isHover = hoverTab === tab;
-            return (
-              <button
-                key={tab}
-                type="button"
-                onClick={() => setActiveTab(tab)}
-                onMouseEnter={() => setHoverTab(tab)}
-                onMouseLeave={() => setHoverTab(null)}
-                style={{
-                  flex: 1,
-                  padding: '0.5rem ',
-                  background: isActive ? '#466ba2ff' : 'transparent',
-                  color: isActive ? '#01171af1' : '#f1f6fbff',
-                  borderTop: isActive ? '2.5px solid #fff' : 'none',
-                  borderLeft: isActive ? '2.5px solid #fff' : 'none',
-                  borderRight: isActive ? '2.5px solid #fff' : 'none',
+          const isActive = activeTab === tab;
+          const isHover = hoverTab === tab;
+          return (
+            <button
+              key={tab}
+              type="button"
+              onClick={() => setActiveTab(tab)}
+              onMouseEnter={() => setHoverTab(tab)}
+              onMouseLeave={() => setHoverTab(null)}
+              style={{
+                flex: 1,
+                padding: '0.5rem ',
+                background: isActive ? '#466ba2ff' : 'transparent',
+                color: isActive ? '#01171af1' : '#f1f6fbff',
+                borderTop: isActive ? '2.5px solid #fff' : 'none',
+                borderLeft: isActive ? '2.5px solid #fff' : 'none',
+                borderRight: isActive ? '2.5px solid #fff' : 'none',
                 borderBottom: isActive || isHover ? '3px solid rgb(20, 212, 212)' : '3px solid transparent',
-                  borderRadius: isActive ? '8px 8px 0 0' : 0,
-                  fontWeight: 700,
+                borderRadius: isActive ? '8px 8px 0 0' : 0,
+                fontWeight: 700,
                 fontSize: 16,
-                  cursor: 'pointer',
-                  transition: 'all 0.2s',
-                  position: 'relative',
-                  zIndex: isActive ? 2 : 1,
-                  marginBottom: isActive ? '-2.5px' : 0,
-                }}
-              >
-                {tab === 'general'
-                  ? 'General'
-                  : tab === 'address'
-                    ? 'Address'
-                    : tab === 'account'
-                      ? 'Account Details'
-                      : 'ID Verification'}
-              </button>
-            );
-          })}
-        </div>
-  
-        <form
-          onSubmit={e => { e.preventDefault(); handleSave(); }}
-          style={{
-            borderRadius: 16,
-            boxShadow: "0 2px 24px #0002",
-          padding: "0.5rem",
-            minWidth: 350,
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+                position: 'relative',
+                zIndex: isActive ? 2 : 1,
+                marginBottom: isActive ? '-2.5px' : 0,
+              }}
+            >
+              {tab === 'general'
+                ? 'General'
+                : tab === 'address'
+                  ? 'Address'
+                  : tab === 'account'
+                    ? 'Account Details'
+                    : 'ID Verification'}
+            </button>
+          );
+        })}
+      </div>
+
+      <form
+        onSubmit={e => { e.preventDefault(); handleSave(); }}
+        style={{
+          borderRadius: 16,
+          boxShadow: "0 2px 24px #0002",
+          padding: "2.5rem",
+          minWidth: 350,
           maxWidth: 1300,
           width: "100%",
           display: "fixed",
-            flexDirection: "column",
-            gap: "0.5rem",
-          marginLeft: "0.5rem",
-            marginRight: 'auto',
+          flexDirection: "column",
+          gap: "0.5rem",
+          marginLeft: "3.5rem",
+          marginRight: 'auto',
           marginTop: 30,
-          position:'fixed',
+          position: 'fixed',
           backgroundColor: 'rgb(163, 238, 232)',
           overflow: 'hidden',
-          }}
-        >
-          {/* --- Tab Content: Only show content for active tab --- */}
+        }}
+      >
+        {/* --- Tab Content: Only show content for active tab --- */}
         {activeTab === 'general' && (
           <>
             <div style={{ display: "flex", flexDirection: "column", gap: "1.3rem", padding: '1.5rem 0' }}>
@@ -474,7 +473,7 @@ setForm({
                 {errors?.firstName && <span style={errorStyle}>{errors?.firstName}</span>}
                 {errors?.lastName && <span style={errorStyle}>{errors?.lastName}</span>}
               </div>
-              
+
               {/* Father's Name (horizontal) */}
               <div style={fieldContainerStyle}>
                 <label style={labelStyle}>Father's Name</label>
@@ -507,7 +506,7 @@ setForm({
                 {errors?.fatherLastName && <span style={errorStyle}>{errors?.fatherLastName}</span>}
               </div>
             </div>
-            
+
             {/* Mother's Name, DOB, Age, Contact, Religion, Sex */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "0.5rem", paddingBottom: '0.5rem' }}>
               <div style={fieldContainerStyle}>
@@ -570,304 +569,304 @@ setForm({
           </>
         )}
 
-              {activeTab === 'address' && (
-                <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginTop: 0, padding: '0.9rem ' }}>
-                  {/* Present Address Block */}
-                  <div style={{
-                    display: 'grid',
+        {activeTab === 'address' && (
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginTop: 0, padding: '0.9rem ' }}>
+            {/* Present Address Block */}
+            <div style={{
+              display: 'grid',
               gridTemplateColumns: 'minmax(150px, 1fr) minmax(250px, 2fr) minmax(100px, 1fr)',
-                    gap: '0.9rem'
-                  }}>
-                    <h3 style={{ gridColumn: '1 / -1', marginBottom: '0.5rem', marginTop: '0.5rem', fontSize: 18 }}>Present Address</h3>
-                    <div style={addressFieldContainerStyle}>
-                      <label style={labelStyle}>House No.</label>
-                      <input
-                        name="presentHouseNo"
-                        value={form.presentHouseNo}
-                        onChange={handleChange}
-                        required
+              gap: '0.9rem'
+            }}>
+              <h3 style={{ gridColumn: '1 / -1', marginBottom: '0.5rem', marginTop: '0.5rem', fontSize: 18 }}>Present Address</h3>
+              <div style={addressFieldContainerStyle}>
+                <label style={labelStyle}>House No.</label>
+                <input
+                  name="presentHouseNo"
+                  value={form.presentHouseNo}
+                  onChange={handleChange}
+                  required
                   style={inputStyle(errors?.presentHouseNo, undefined, "95%")}
-                        placeholder="101"
-                      />
+                  placeholder="101"
+                />
                 {errors?.presentHouseNo && <span style={errorStyle}>{errors?.presentHouseNo}</span>}
-                    </div>
-                    <div style={addressFieldContainerStyle}>
-                      <label style={labelStyle}>Street Name</label>
-                      <input
-                        name="presentStreetName"
-                        value={form.presentStreetName}
-                        onChange={handleChange}
-                        required
+              </div>
+              <div style={addressFieldContainerStyle}>
+                <label style={labelStyle}>Street Name</label>
+                <input
+                  name="presentStreetName"
+                  value={form.presentStreetName}
+                  onChange={handleChange}
+                  required
                   style={inputStyle(errors?.presentStreetName, undefined, "83%")}
-                        placeholder="Flat, Building, Area, Locality"
-                      />
+                  placeholder="Flat, Building, Area, Locality"
+                />
                 {errors?.presentStreetName && <span style={errorStyle}>{errors?.presentStreetName}</span>}
-                    </div>
-                    <div style={addressFieldContainerStyle}>
-                      <label style={labelStyle}>Pincode</label>
-                      <input
-                        name="presentPincode"
-                        value={form.presentPincode || ""}
-                        onChange={handleChange}
-                        maxLength={6}
+              </div>
+              <div style={addressFieldContainerStyle}>
+                <label style={labelStyle}>Pincode</label>
+                <input
+                  name="presentPincode"
+                  value={form.presentPincode || ""}
+                  onChange={handleChange}
+                  maxLength={6}
                   style={inputStyle(errors?.presentPincode, undefined, "65%")}
-                        required
-                        placeholder="411001"
-                      />
+                  required
+                  placeholder="411001"
+                />
                 {errors?.presentPincode && <span style={errorStyle}>{errors?.presentPincode}</span>}
-                    </div>
-              
-                    {/* City, State, Country, Nearby Place in a clearer grid */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))', gap: '0.5rem', gridColumn: '1 / -1' }}>
-                      <div style={compactFieldContainerStyle}>
-                        <label style={labelStyle}>City</label>
-                        <select
-                          name="presentCity"
-                          value={form.presentCity || ""}
-                          onChange={handleChange}
-                    style={compactInputStyle(errors?.presentCity, undefined, "65%")}
-                          required
-                        >
-                          <option value="">Select</option>
-                          {cities.map(c => <option key={c} value={c}>{c}</option>)}
-                        </select>
-                  {errors?.presentCity && <span style={errorStyle}>{errors?.presentCity}</span>}
-                      </div>
-                      <div style={compactFieldContainerStyle}>
-                        <label style={labelStyle}>State</label>
-                        <select
-                          name="presentState"
-                          value={form.presentState || ""}
-                          onChange={handleChange}
-                    style={compactInputStyle(errors?.presentState, undefined, "65%")}
-                          required
-                        >
-                          <option value="">Select</option>
-                          {states.map(s => <option key={s} value={s}>{s}</option>)}
-                        </select>
-                  {errors?.presentState && <span style={errorStyle}>{errors?.presentState}</span>}
-                      </div>
-                      <div style={compactFieldContainerStyle}>
-                        <label style={labelStyle}>Country</label>
-                        <select
-                          name="presentCountry"
-                          value={form.presentCountry || ""}
-                          onChange={handleChange}
-                    style={compactInputStyle(errors?.presentCountry, undefined, "65%")}
-                          required
-                        >
-                          <option value="">Select</option>
-                          {countries.map(c => <option key={c} value={c}>{c}</option>)}
-                        </select>
-                  {errors?.presentCountry && <span style={errorStyle}>{errors?.presentCountry}</span>}
-                      </div>
-                      <div style={compactFieldContainerStyle}>
-                        <label style={labelStyle}>Nearby Place (optional)</label>
-                  <input name="presentNearbyPlace" value={form.presentNearbyPlace || ""} onChange={handleChange} style={compactInputStyle(undefined)} placeholder="Near City Mall" />
-                      </div>
-                    </div>
-                  </div>
-            
-                  {/* Permanent Address Block */}
-                  <div style={{
-                    display: 'grid',
-              gridTemplateColumns: 'minmax(150px, 1fr) minmax(250px, 2fr) minmax(100px, 1fr)',
-                    gap: '0.6rem'
-                  }}>
-                    <div style={{
-                      gridColumn: '1 / -1',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      marginBottom: '0.1rem',
-                      marginTop: '0.1rem'
-                    }}>
-                      <h3 style={{ margin: 0, fontSize: 18 }}>Permanent Address</h3>
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <input
-                          type="checkbox"
-                          checked={form.isSameAddress}
-                          onChange={handlePermanentSameCheckbox}
-                          id="samePermanent"
-                          style={{ marginRight: '0.5rem' }}
-                        />
-                  <label htmlFor="samePermanent" style={{ fontSize: 14 }}>
-                          Same as present address
-                        </label>
-                      </div>
-                    </div>
-  
-                    <div style={addressFieldContainerStyle}>
-                      <label style={labelStyle}>House No.</label>
-                      <input
-                        name="permanentHouseNo"
-                        value={form.permanentHouseNo}
-                        onChange={handleChange}
-                        required
-                        disabled={form.isSameAddress}
-                  style={inputStyle(errors?.permanentHouseNo, form.isSameAddress)}
-                        placeholder="101"
-                      />
-                {errors?.permanentHouseNo && <span style={errorStyle}>{errors?.permanentHouseNo}</span>}
-                    </div>
-                    <div style={addressFieldContainerStyle}>
-                      <label style={labelStyle}>Street Name</label>
-                      <input
-                        name="permanentStreetName"
-                        value={form.permanentStreetName}
-                        onChange={handleChange}
-                        required
-                        disabled={form.isSameAddress}
-                  style={inputStyle(errors?.permanentStreetName, form.isSameAddress, "83%")}
-                        placeholder="Flat, Building, Area, Locality"
-                      />
-                {errors?.permanentStreetName && <span style={errorStyle}>{errors?.permanentStreetName}</span>}
-                    </div>
-                    <div style={addressFieldContainerStyle}>
-                      <label style={labelStyle}>Pincode</label>
-                      <input
-                        name="permanentPincode"
-                        value={form.isSameAddress ? form.presentPincode || "" : form.permanentPincode || ""}
-                        onChange={handleChange}
-                        maxLength={6}
-                  style={inputStyle(errors?.permanentPincode, form.isSameAddress, "65%")}
-                        required
-                        disabled={form.isSameAddress}
-                        placeholder="411001"
-                      />
-                {errors?.permanentPincode && <span style={errorStyle}>{errors?.permanentPincode}</span>}
-                    </div>
-              
-                    {/* City, State, Country, Nearby Place in a clearer grid */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))', gap: '0.5rem', gridColumn: '1 / -1' }}>
-                      <div style={compactFieldContainerStyle}>
-                        <label style={labelStyle}>City</label>
-                        <select
-                          name="permanentCity"
-                          value={form.isSameAddress ? form.presentCity || "" : form.permanentCity || ""}
-                          onChange={handleChange}
-                    style={compactInputStyle(errors?.permanentCity, form.isSameAddress, "65%")}
-                          required
-                          disabled={form.isSameAddress}
-                        >
-                          <option value="">Select</option>
-                          {cities.map(c => <option key={c} value={c}>{c}</option>)}
-                        </select>
-                  {errors?.permanentCity && <span style={errorStyle}>{errors?.permanentCity}</span>}
-                      </div>
-                      <div style={compactFieldContainerStyle}>
-                        <label style={labelStyle}>State</label>
-                        <select
-                          name="permanentState"
-                          value={form.isSameAddress ? form.presentState || "" : form.permanentState || ""}
-                          onChange={handleChange}
-                    style={compactInputStyle(errors?.permanentState, form.isSameAddress, "65%")}
-                          required
-                          disabled={form.isSameAddress}
-                        >
-                          <option value="">Select</option>
-                          {states.map(s => <option key={s} value={s}>{s}</option>)}
-                        </select>
-                  {errors?.permanentState && <span style={errorStyle}>{errors?.permanentState}</span>}
-                      </div>
-                      <div style={compactFieldContainerStyle}>
-                        <label style={labelStyle}>Country</label>
-                        <select
-                          name="permanentCountry"
-                          value={form.isSameAddress ? form.presentCountry || "" : form.permanentCountry || ""}
-                          onChange={handleChange}
-                    style={compactInputStyle(errors?.permanentCountry, form.isSameAddress, "65%")}
-                          required
-                          disabled={form.isSameAddress}
-                        >
-                          <option value="">Select</option>
-                          {countries.map(c => <option key={c} value={c}>{c}</option>)}
-                        </select>
-                  {errors?.permanentCountry && <span style={errorStyle}>{errors?.permanentCountry}</span>}
-                      </div>
-                      <div style={compactFieldContainerStyle}>
-                        <label style={labelStyle}>Nearby Place (optional)</label>
-                        <input
-                          name="permanentNearbyPlace"
-                          value={form.isSameAddress ? form.presentNearbyPlace || "" : form.permanentNearbyPlace || ""}
-                          onChange={handleChange}
-                    style={compactInputStyle(undefined)}
-                          disabled={form.isSameAddress}
-                          placeholder="Near City Mall"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
+              </div>
 
-              {activeTab === 'account' && (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: 8, padding: '0.5rem 0' }}>
-                    <div style={fieldContainerStyle}>
-                      <label style={labelStyle}>Bank Type</label>
+              {/* City, State, Country, Nearby Place in a clearer grid */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))', gap: '0.5rem', gridColumn: '1 / -1' }}>
+                <div style={compactFieldContainerStyle}>
+                  <label style={labelStyle}>City</label>
+                  <select
+                    name="presentCity"
+                    value={form.presentCity || ""}
+                    onChange={handleChange}
+                    style={compactInputStyle(errors?.presentCity, undefined, "65%")}
+                    required
+                  >
+                    <option value="">Select</option>
+                    {cities.map(c => <option key={c} value={c}>{c}</option>)}
+                  </select>
+                  {errors?.presentCity && <span style={errorStyle}>{errors?.presentCity}</span>}
+                </div>
+                <div style={compactFieldContainerStyle}>
+                  <label style={labelStyle}>State</label>
+                  <select
+                    name="presentState"
+                    value={form.presentState || ""}
+                    onChange={handleChange}
+                    style={compactInputStyle(errors?.presentState, undefined, "65%")}
+                    required
+                  >
+                    <option value="">Select</option>
+                    {states.map(s => <option key={s} value={s}>{s}</option>)}
+                  </select>
+                  {errors?.presentState && <span style={errorStyle}>{errors?.presentState}</span>}
+                </div>
+                <div style={compactFieldContainerStyle}>
+                  <label style={labelStyle}>Country</label>
+                  <select
+                    name="presentCountry"
+                    value={form.presentCountry || ""}
+                    onChange={handleChange}
+                    style={compactInputStyle(errors?.presentCountry, undefined, "65%")}
+                    required
+                  >
+                    <option value="">Select</option>
+                    {countries.map(c => <option key={c} value={c}>{c}</option>)}
+                  </select>
+                  {errors?.presentCountry && <span style={errorStyle}>{errors?.presentCountry}</span>}
+                </div>
+                <div style={compactFieldContainerStyle}>
+                  <label style={labelStyle}>Nearby Place (optional)</label>
+                  <input name="presentNearbyPlace" value={form.presentNearbyPlace || ""} onChange={handleChange} style={compactInputStyle(undefined)} placeholder="Near City Mall" />
+                </div>
+              </div>
+            </div>
+
+            {/* Permanent Address Block */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'minmax(150px, 1fr) minmax(250px, 2fr) minmax(100px, 1fr)',
+              gap: '0.6rem'
+            }}>
+              <div style={{
+                gridColumn: '1 / -1',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                marginBottom: '0.1rem',
+                marginTop: '0.1rem'
+              }}>
+                <h3 style={{ margin: 0, fontSize: 18 }}>Permanent Address</h3>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <input
+                    type="checkbox"
+                    checked={form.isSameAddress}
+                    onChange={handlePermanentSameCheckbox}
+                    id="samePermanent"
+                    style={{ marginRight: '0.5rem' }}
+                  />
+                  <label htmlFor="samePermanent" style={{ fontSize: 14 }}>
+                    Same as present address
+                  </label>
+                </div>
+              </div>
+
+              <div style={addressFieldContainerStyle}>
+                <label style={labelStyle}>House No.</label>
+                <input
+                  name="permanentHouseNo"
+                  value={form.permanentHouseNo}
+                  onChange={handleChange}
+                  required
+                  disabled={form.isSameAddress}
+                  style={inputStyle(errors?.permanentHouseNo, form.isSameAddress)}
+                  placeholder="101"
+                />
+                {errors?.permanentHouseNo && <span style={errorStyle}>{errors?.permanentHouseNo}</span>}
+              </div>
+              <div style={addressFieldContainerStyle}>
+                <label style={labelStyle}>Street Name</label>
+                <input
+                  name="permanentStreetName"
+                  value={form.permanentStreetName}
+                  onChange={handleChange}
+                  required
+                  disabled={form.isSameAddress}
+                  style={inputStyle(errors?.permanentStreetName, form.isSameAddress, "83%")}
+                  placeholder="Flat, Building, Area, Locality"
+                />
+                {errors?.permanentStreetName && <span style={errorStyle}>{errors?.permanentStreetName}</span>}
+              </div>
+              <div style={addressFieldContainerStyle}>
+                <label style={labelStyle}>Pincode</label>
+                <input
+                  name="permanentPincode"
+                  value={form.isSameAddress ? form.presentPincode || "" : form.permanentPincode || ""}
+                  onChange={handleChange}
+                  maxLength={6}
+                  style={inputStyle(errors?.permanentPincode, form.isSameAddress, "65%")}
+                  required
+                  disabled={form.isSameAddress}
+                  placeholder="411001"
+                />
+                {errors?.permanentPincode && <span style={errorStyle}>{errors?.permanentPincode}</span>}
+              </div>
+
+              {/* City, State, Country, Nearby Place in a clearer grid */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))', gap: '0.5rem', gridColumn: '1 / -1' }}>
+                <div style={compactFieldContainerStyle}>
+                  <label style={labelStyle}>City</label>
+                  <select
+                    name="permanentCity"
+                    value={form.isSameAddress ? form.presentCity || "" : form.permanentCity || ""}
+                    onChange={handleChange}
+                    style={compactInputStyle(errors?.permanentCity, form.isSameAddress, "65%")}
+                    required
+                    disabled={form.isSameAddress}
+                  >
+                    <option value="">Select</option>
+                    {cities.map(c => <option key={c} value={c}>{c}</option>)}
+                  </select>
+                  {errors?.permanentCity && <span style={errorStyle}>{errors?.permanentCity}</span>}
+                </div>
+                <div style={compactFieldContainerStyle}>
+                  <label style={labelStyle}>State</label>
+                  <select
+                    name="permanentState"
+                    value={form.isSameAddress ? form.presentState || "" : form.permanentState || ""}
+                    onChange={handleChange}
+                    style={compactInputStyle(errors?.permanentState, form.isSameAddress, "65%")}
+                    required
+                    disabled={form.isSameAddress}
+                  >
+                    <option value="">Select</option>
+                    {states.map(s => <option key={s} value={s}>{s}</option>)}
+                  </select>
+                  {errors?.permanentState && <span style={errorStyle}>{errors?.permanentState}</span>}
+                </div>
+                <div style={compactFieldContainerStyle}>
+                  <label style={labelStyle}>Country</label>
+                  <select
+                    name="permanentCountry"
+                    value={form.isSameAddress ? form.presentCountry || "" : form.permanentCountry || ""}
+                    onChange={handleChange}
+                    style={compactInputStyle(errors?.permanentCountry, form.isSameAddress, "65%")}
+                    required
+                    disabled={form.isSameAddress}
+                  >
+                    <option value="">Select</option>
+                    {countries.map(c => <option key={c} value={c}>{c}</option>)}
+                  </select>
+                  {errors?.permanentCountry && <span style={errorStyle}>{errors?.permanentCountry}</span>}
+                </div>
+                <div style={compactFieldContainerStyle}>
+                  <label style={labelStyle}>Nearby Place (optional)</label>
+                  <input
+                    name="permanentNearbyPlace"
+                    value={form.isSameAddress ? form.presentNearbyPlace || "" : form.permanentNearbyPlace || ""}
+                    onChange={handleChange}
+                    style={compactInputStyle(undefined)}
+                    disabled={form.isSameAddress}
+                    placeholder="Near City Mall"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'account' && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: 8, padding: '0.5rem 0' }}>
+            <div style={fieldContainerStyle}>
+              <label style={labelStyle}>Bank Type</label>
               <select name="bankType" value={form.bankType} onChange={handleChange} required style={inputStyle(errors?.bankType)}>
-                        <option value="">Select</option>
-                        <option value="upi">UPI</option>
-                        <option value="account">Account Number</option>
-                      </select>
+                <option value="">Select</option>
+                <option value="upi">UPI</option>
+                <option value="account">Account Number</option>
+              </select>
               {errors?.bankType && <span style={errorStyle}>{errors?.bankType}</span>}
-                    </div>
-            
-                    {form.bankType === "upi" && (
-                      <div style={fieldContainerStyle}>
-                        <label style={labelStyle}>UPI ID</label>
+            </div>
+
+            {form.bankType === "upi" && (
+              <div style={fieldContainerStyle}>
+                <label style={labelStyle}>UPI ID</label>
                 <input name="upi" value={form.upi} onChange={handleChange} required style={inputStyle(errors?.upi)} placeholder="yourname@bankupi" />
                 {errors?.upi && <span style={errorStyle}>{errors?.upi}</span>}
-                      </div>
-                    )}
-            
-                    {form.bankType === "account" && (
-                      <>
-                        <div style={fieldContainerStyle}>
-                          <label style={labelStyle}>Account Number</label>
+              </div>
+            )}
+
+            {form.bankType === "account" && (
+              <>
+                <div style={fieldContainerStyle}>
+                  <label style={labelStyle}>Account Number</label>
                   <input name="accountNumber" value={form.accountNumber} onChange={handleChange} required style={inputStyle(errors?.accountNumber)} placeholder="123456789012" />
                   {errors?.accountNumber && <span style={errorStyle}>{errors?.accountNumber}</span>}
-                        </div>
-                        <div style={fieldContainerStyle}>
-                          <label style={labelStyle}>Bank Name</label>
+                </div>
+                <div style={fieldContainerStyle}>
+                  <label style={labelStyle}>Bank Name</label>
                   <input name="bankName" value={form.bankName} onChange={handleChange} required style={inputStyle(errors?.bankName)} placeholder="State Bank of India" />
                   {errors?.bankName && <span style={errorStyle}>{errors?.bankName}</span>}
-                        </div>
-                        <div style={fieldContainerStyle}>
-                          <label style={labelStyle}>IFSC Code</label>
+                </div>
+                <div style={fieldContainerStyle}>
+                  <label style={labelStyle}>IFSC Code</label>
                   <input name="ifsc" value={form.ifsc} onChange={handleChange} required style={inputStyle(errors?.ifsc)} placeholder="SBIN0000001" />
                   {errors?.ifsc && <span style={errorStyle}>{errors?.ifsc}</span>}
-                        </div>
-                        <div style={fieldContainerStyle}>
-                          <label style={labelStyle}>SWIFT Code (optional)</label>
+                </div>
+                <div style={fieldContainerStyle}>
+                  <label style={labelStyle}>SWIFT Code (optional)</label>
                   <input name="swift" value={form.swift} onChange={handleChange} style={inputStyle(undefined)} placeholder="SWIFTCODEIN" />
-                        </div>
-                      </>
-                    )}
-                  </div>
-              )}
+                </div>
+              </>
+            )}
+          </div>
+        )}
 
-              {activeTab === 'id' && (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: 8, padding: '0.5rem 0' }}>
-                    <div style={fieldContainerStyle}>
-                      <label style={labelStyle}>Aadhar Number</label>
+        {activeTab === 'id' && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: 8, padding: '0.5rem 0' }}>
+            <div style={fieldContainerStyle}>
+              <label style={labelStyle}>Aadhar Number</label>
               <input name="aadhar" value={form.aadhar} onChange={handleChange} required style={inputStyle(errors?.aadhar)} maxLength={12} placeholder="123456789012" />
               {errors?.aadhar && <span style={errorStyle}>{errors?.aadhar}</span>}
-                    </div>
-                    <div style={fieldContainerStyle}>
-                      <label style={labelStyle}>PAN Number</label>
+            </div>
+            <div style={fieldContainerStyle}>
+              <label style={labelStyle}>PAN Number</label>
               <input name="pan" value={form.pan} onChange={handleChange} required style={inputStyle(errors?.pan)} maxLength={10} placeholder="ABCDE1234F" />
               {errors?.pan && <span style={errorStyle}>{errors?.pan}</span>}
-                    </div>
-                  </div>
-          )}
-  
-          {/* --- Save/Reset Buttons --- */}
-          <div style={{ display: "flex", justifyContent: "space-between", marginTop: 10 }}>
-            <button type="submit" style={btnStyle("#4caf50")}>Save</button>
-            <button type="button" onClick={handleDelete} style={btnStyle("#f44336")}>Reset</button>
+            </div>
           </div>
-        </form>
+        )}
+
+        {/* --- Save/Reset Buttons --- */}
+        <div style={{ display: "flex", justifyContent: "space-between", marginTop: 10 }}>
+          <button type="submit" style={btnStyle("#4caf50")}>Save</button>
+          <button type="button" onClick={handleDelete} style={btnStyle("#f44336")}>Reset</button>
+        </div>
+      </form>
     </div>
   );
 }
@@ -876,66 +875,66 @@ setForm({
 const inputStyle = (error: any, disabled?: boolean, customWidth?: string) => ({
   maxWidth: customWidth || "100%",
   width: customWidth || "90%",
-    padding: "0.5rem 0.7rem",
-    borderRadius: 6,
+  padding: "0.5rem 0.7rem",
+  borderRadius: 6,
   border: error ? "1.5px solid rgb(248, 15, 15)" : "1px solid #ccc",
-    background: disabled ? "#f5f5f5" : "#fff",
-    marginBottom: 0,
-    fontSize: 13,
+  background: disabled ? "#f5f5f5" : "#fff",
+  marginBottom: 0,
+  fontSize: 13,
   boxSizing: 'border-box' as const,
 });
 
 const compactInputStyle = (error?: any, disabled?: boolean, customWidth?: string) => ({
   maxWidth: customWidth || `100%`,
   width: customWidth || `100%`,
-    padding: "0.4rem 0.5rem",
-    borderRadius: 6,
-  border: error ? "1.5px solid rgb(236, 9, 9)" : "1px solid #ccc",
-    background: disabled ? "#f5f5f5" : "#fff",
-    marginBottom: 0,
+  padding: "0.4rem 0.5rem",
+  borderRadius: 6,
+  border: error ? "1.5px solid rgb(236, 35, 9)" : "1px solid #ccc",
+  background: disabled ? "#f5f5f5" : "#fff",
+  marginBottom: 0,
   fontSize: 15,
   boxSizing: 'border-box' as const,
-  });
-  
-  const errorStyle = {
-    color: "#f44336",
+});
+
+const errorStyle = {
+  color: "#f44336",
   fontSize: 13,
-    marginLeft: 4,
-    marginTop: 2,
-    marginBottom: 2,
-  };
-  
-  const btnStyle = (color: string) => ({
-    padding: "0.4rem 0.8rem",
-    backgroundColor: color,
+  marginLeft: 4,
+  marginTop: 2,
+  marginBottom: 2,
+};
+
+const btnStyle = (color: string) => ({
+  padding: "0.4rem 0.8rem",
+  backgroundColor: color,
   color: "rgb(247, 241, 241)",
-    border: "none",
-    borderRadius: 6,
-    cursor: "pointer",
-    fontWeight: 600,
-    fontSize: 16,
-    minWidth: 70,
-  });
-  
-  const fieldContainerStyle = {
-    display: 'flex',
+  border: "none",
+  borderRadius: 6,
+  cursor: "pointer",
+  fontWeight: 600,
+  fontSize: 16,
+  minWidth: 70,
+});
+
+const fieldContainerStyle = {
+  display: 'flex',
   flexDirection: 'column' as const,
   marginBottom: '0.1rem',
-  };
-  
-  const addressFieldContainerStyle = {
-    display: 'flex',
+};
+
+const addressFieldContainerStyle = {
+  display: 'flex',
   flexDirection: 'column' as const,
   marginBottom: '0.1rem',
-  };
-  
-  const compactFieldContainerStyle = {
-    display: 'flex',
+};
+
+const compactFieldContainerStyle = {
+  display: 'flex',
   flexDirection: 'column' as const,
   marginBottom: '0.1rem',
-  };
-  
-  const labelStyle = {
+};
+
+const labelStyle = {
   fontSize: 12,
-    marginBottom: '0.1rem',
-  };
+  marginBottom: '0.1rem',
+};

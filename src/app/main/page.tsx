@@ -28,7 +28,7 @@ type Section = "user" | "master" | "student";
 
 // 🎨 Styles
 const sidebarStyle: React.CSSProperties = {
-  backgroundColor: "#2e7d32",
+  backgroundColor: "rgb(24, 172, 212)",
   padding: "1rem",
   display: "flex",
   flexDirection: "column",
@@ -223,7 +223,7 @@ function MainPage() {
               padding: '1.5rem', 
               background: '#e3f2fd', 
               borderRadius: '8px', 
-              border: '2px solid #2196f3'
+              border: '2px solid rgb(33, 47, 243)'
             }}>
               <h3 style={{ color: '#1976d2', marginBottom: '0.5rem' }}>📖 Library System</h3>
               <p>Manage books, loans, and library resources</p>

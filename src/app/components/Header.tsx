@@ -11,8 +11,8 @@ const iconBtn: React.CSSProperties = {
   border: "none",
   cursor: "pointer",
   borderRadius: "50%",
-  width: 40,
-  height: 40,
+  width: '20',
+  height: 30,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -23,16 +23,16 @@ const iconBtn: React.CSSProperties = {
 
 const dropdownStyle: React.CSSProperties = {
   position: "absolute",
-  top: "100%",
-  left: 0,
-  background: "#fff",
+  top: "200%",
+  left: "300%",
+  background: "rgb(243, 240, 237)",
   color: "#222",
-  minWidth: 170,
+  minWidth: 260,
   boxShadow: "0 4px 18px #0003",
   borderRadius: 10,
-  marginTop: 8,
+  marginTop: 20,
   zIndex: 200,
-  padding: "0.5rem 0.2rem",
+  padding: "1.5rem 0.2rem",
   display: "flex",
   flexDirection: "column",
   gap: 8,
@@ -45,7 +45,7 @@ const modalOverlay: React.CSSProperties = {
   left: 0,
   width: "100vw",
   height: "100vh",
-  background: "rgba(0,0,0,0.3)",
+  background: "rgb(13, 35, 233)",
   zIndex: 999,
   display: "flex",
   alignItems: "center",
@@ -148,7 +148,7 @@ const Header: React.FC<HeaderProps> = ({ tabName, userName }) => {
         {/* Profile Icon */}
         <div style={{ position: "relative" }}>
           <button style={iconBtn} onClick={() => setShowProfile(v => !v)} aria-label="Profile">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4.2" stroke="#232323" strokeWidth="1.7" fill="#f5f5f5" /><path d="M4.5 19.2c0-3.1 3.1-5.2 7.5-5.2s7.5 2.1 7.5 5.2" stroke="#232323" strokeWidth="1.7" fill="#f5f5f5" /></svg>
+            <svg width="25" height="25" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4.2" stroke="#232323" strokeWidth="1.5" fill="#f5f5f5" /><path d="M4.5 19.2c0-3.1 3.1-5.2 7.5-5.2s7.5 2.1 7.5 5.2" stroke="#232323" strokeWidth="1.5" fill="#f5f5f5" /></svg>
           </button>
           {showProfile && (
             <div style={{ ...dropdownStyle, right: 0, left: "auto", minWidth: 160 }}>
